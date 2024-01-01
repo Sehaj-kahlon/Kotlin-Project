@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:gravity="start"
+android:id="@+id/itemblock"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="58dp"
+android:layout_alignParentLeft="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentTop="true">
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="34dp"
+    android:layout_marginEnd="34dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/content_blo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/content_bio"
+            tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/item_no"
+            android:layout_width="46dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="66dp"
+            android:layout_alignParentTop="true"
+            android:text="@string/item"
+            android:textAppearance="@style/item"
+            android:gravity="top"
+            />
+        <TextView
+            android:id="@+id/mrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_no"
+            android:layout_toEndOf="@id/content_blo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="15dp"
+            android:text="mrp 100"
+            android:textAppearance="@style/mrp_100_0_s" />
+
+        <!-- Shipping TextView -->
+        <TextView
+            android:id="@+id/shipping_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_no"
+            android:layout_alignParentEnd="true"
+            android:text="shipping on same day"
+            android:layout_marginEnd="10dp" />
+        <View
+            android:id="@+id/divider_lin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="66dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/divider_lin" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

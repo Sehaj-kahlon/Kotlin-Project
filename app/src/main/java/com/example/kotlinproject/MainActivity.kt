@@ -9,6 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.DecorToolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinproject.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,10 +22,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
     //toolbar
     private lateinit var appToolbar: Toolbar
-//    private lateinit var textView: TextView
+    //private lateinit var textView: TextView
     private lateinit var relativeLayout: RelativeLayout
     //bottom nav bar
     private lateinit var binding: ActivityMainBinding
+    private lateinit var myRecyclerView: RecyclerView
+    private lateinit var myAdapter: MyAdapter
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(appToolbar)
         //explore text
        // textView = findViewById(R.id.explore)
-
+        myRecyclerView = findViewById(R.id.recyclerView)
         relativeLayout = findViewById(R.id.Relative)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -48,9 +52,12 @@ class MainActivity : AppCompatActivity() {
 
         retrofitData.enqueue(object : Callback<MyData?> {
             override fun onResponse(call: Call<MyData?>, response: Response<MyData?>) {
-                val dataList = response.body()?.data
-                val textView = findViewById<TextView>(R.id.helloText)
-                textView.text = dataList.toString()
+                val dataList = response.body()?.data!!
+//                val textView = findViewById<TextView>(R.id.helloText)
+//                textView.text = dataList.toString()
+                myAdapter= MyAdapter(this@MainActivity,dataList.items)
+                myRecyclerView.adapter = myAdapter
+                myRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
                 Log.d("TAG: onResponse", "onResponse: "+ response.body())
             }
 
