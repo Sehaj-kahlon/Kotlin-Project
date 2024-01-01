@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.DecorToolbar
+import com.example.kotlinproject.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appToolbar: Toolbar
 //    private lateinit var textView: TextView
     private lateinit var relativeLayout: RelativeLayout
+    //bottom nav bar
+    private lateinit var binding: ActivityMainBinding
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,8 @@ class MainActivity : AppCompatActivity() {
        // textView = findViewById(R.id.explore)
 
         relativeLayout = findViewById(R.id.Relative)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         //data from Retrofit API
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://run.mocky.io/v3/")
