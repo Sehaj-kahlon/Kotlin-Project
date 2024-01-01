@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.DecorToolbar
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinproject.databinding.ActivityMainBinding
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
+
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         relativeLayout = findViewById(R.id.Relative)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(page2())
+
         //data from Retrofit API
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://run.mocky.io/v3/")
@@ -65,7 +70,12 @@ class MainActivity : AppCompatActivity() {
                 Log.d("TAG: onFailure", "onFailure: "+ t.message)
             }
         })
-
-
+    }
+    //replace fragmanets
+    private fun replaceFragment(fragment : Fragment){
+        val fragmnentManager = supportFragmentManager
+        val fragmentTransaction = fragmnentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.Frame,fragment)
+        fragmentTransaction.commit()
     }
 }

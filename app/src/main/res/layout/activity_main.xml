@@ -26,8 +26,7 @@
            </androidx.recyclerview.widget.RecyclerView>
 
            </LinearLayout>
-           <include layout="@layout/bottom_nav"/>
        </FrameLayout>
-
+       <include layout="@layout/bottom_nav"/>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
