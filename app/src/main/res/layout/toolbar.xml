@@ -22,6 +22,24 @@
              android:textAppearance="@style/explore"
              android:gravity="center_horizontal|top"
              />
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="345dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="-61dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="-10dp"
+            android:layout_toStartOf="@id/filter"
+            android:layout_toEndOf="@id/explore"
+            android:background="@drawable/search_bkg"
+            android:backgroundTint="@color/white"
+            android:hint="SEARCH"
+            android:padding="10dp"
+            android:textSize="15sp" />
+
         <TextView
         android:id="@+id/filter"
         android:layout_width="39dp"
