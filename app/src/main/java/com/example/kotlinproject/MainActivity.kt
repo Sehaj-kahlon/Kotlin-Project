@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId){
                 R.id.btn1 ->{
-                    replaceFragment(Page2())
+                    replaceFragment(Page1())
                     true
                 }
                 R.id.btn2 ->{
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
            }
-        replaceFragment(Page2())
+        replaceFragment(Page1())
         //data from Retrofit API
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://run.mocky.io/v3/")
