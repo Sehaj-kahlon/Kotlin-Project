@@ -1,28 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="page1"
-        android:id="+@id/page1"
-        android:icon="@drawable/baseline_circle_24"
-         />
-    <item
-        android:title="page2"
-        android:id="+@id/page2"
-        android:icon="@drawable/baseline_circle_24"
-        />
-    <item
-        android:title="item0"
-        android:id="+@id/item0"
-        android:icon="@drawable/baseline_circle_24"
-        />    <item
         android:title="item1"
-        android:id="+@id/item1"
-        android:icon="@drawable/baseline_circle_24"/>
+        android:id="@+id/btn1"
+        android:icon="@drawable/baseline_circle_24" />
+
     <item
         android:title="item2"
-        android:id="+@id/item2"
-        android:icon="@drawable/baseline_circle_24"/>
+        android:id="@+id/btn2"
+        android:icon="@drawable/baseline_circle_24" />
+
+    <item
+        android:title="item3"
+        android:id="@+id/btn3"
+        android:icon="@drawable/baseline_circle_24" />
+
+    <item
+        android:title="item4"
+        android:id="@+id/btn4"
+        android:icon="@drawable/baseline_circle_24" />
+
+    <item
+        android:title="item5"
+        android:id="@+id/btn5"
+        android:icon="@drawable/baseline_circle_24" />
 
 </menu>

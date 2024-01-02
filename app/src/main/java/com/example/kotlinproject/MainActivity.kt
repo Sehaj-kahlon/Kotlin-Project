@@ -13,24 +13,22 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinproject.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 class MainActivity : AppCompatActivity() {
     //toolbar
     private lateinit var appToolbar: Toolbar
-    //private lateinit var textView: TextView
-    private lateinit var relativeLayout: RelativeLayout
     //bottom nav bar
     private lateinit var binding: ActivityMainBinding
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
 
-
+    private lateinit var bottomNavigationView: BottomNavigationView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +39,24 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(appToolbar)
         //explore text
        // textView = findViewById(R.id.explore)
+        bottomNavigationView = findViewById(R.id.bottom_nav)
         myRecyclerView = findViewById(R.id.recyclerView)
-        relativeLayout = findViewById(R.id.Relative)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        replaceFragment(page2())
-
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.btn1 ->{
+                    replaceFragment(Page2())
+                    true
+                }
+                R.id.btn2 ->{
+                    replaceFragment(Page2())
+                    true
+                }
+                else ->{
+                    false
+                }
+            }
+           }
+        replaceFragment(Page2())
         //data from Retrofit API
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://run.mocky.io/v3/")

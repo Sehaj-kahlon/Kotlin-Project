@@ -24,7 +24,8 @@ android {
         }
     }
     buildFeatures{
-        viewBinding true
+        dataBinding = true
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -51,4 +52,5 @@ dependencies {
     implementation 'com.airbnb.android:lottie:2.0.0-beta4'
     //using picasso as image dependency
     implementation 'com.squareup.picasso:picasso:2.8'
+    implementation "androidx.compose.material:material:1.5.4"
 }
