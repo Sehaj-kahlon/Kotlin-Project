@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinproject.databinding.ActivityMainBinding
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
+   private lateinit var bottomAppBar: BottomAppBar
+// Set up the BottomAppBar and BottomNavigationView as needed
 
     private lateinit var bottomNavigationView: BottomNavigationView
     @SuppressLint("MissingInflatedId")
@@ -39,7 +42,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(appToolbar)
         //explore text
        // textView = findViewById(R.id.explore)
-        bottomNavigationView = findViewById(R.id.bottom_nav)
+        bottomAppBar = findViewById(R.id.bottom_nav)
+        bottomNavigationView = findViewById(R.id.bottom_menu)
         myRecyclerView = findViewById(R.id.recyclerView)
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId){
