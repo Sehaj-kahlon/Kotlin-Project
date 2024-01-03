@@ -43,6 +43,6 @@ class MyAdapter(val context: Activity, val dataList: List<Item>):
         holder.itemName.text= currentData.name
         Picasso.get().load(currentData.image).into(holder.itemImage);
         holder.shipInfo.text = currentData.extra
-        holder.itemPrice.text = "MRP: "+currentData.price
+        holder.itemPrice.text = currentData.price
     }
 }

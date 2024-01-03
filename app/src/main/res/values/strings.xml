@@ -9,6 +9,15 @@
 Item 1
 </string>
     <string name="mrp_100_0_s">
-MRP: \u00e2\u0082\u00b9100.0 Same Day Shipping
+  \u00e2\u0082\u00b9100.0
+</string>
+    <string name="search">
+Search
+</string>
+    <string name="item_1">
+Item 1
+</string>
+    <string name="some_id">
+\u00e2\u0082\u00b9100.0
 </string>
 </resources>
