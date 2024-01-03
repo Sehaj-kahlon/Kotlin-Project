@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_mar"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_width="110dp"
+    android:layout_height="166dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/grid_img"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/img_square"
+            tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/grid_item"
+            android:layout_width="0dp"
+            android:layout_height="17dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="118dp"
+            android:text="Item1"
+            android:textAppearance="@style/item_1"
+            android:gravity="top"
+            />
+        <TextView
+            android:id="@+id/grid_mrp"
+            android:layout_width="46dp"
+            android:layout_height="17dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="140dp"
+            android:text="MRP"
+            android:textAppearance="@style/some_id"
+            android:gravity="top"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

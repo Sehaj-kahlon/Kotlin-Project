@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.btn2 ->{
-                    replaceFragment(Page2())
+                    replaceFragment(Page2.newInstance(dataList.items))
                     true
                 }
                 else ->{
@@ -53,9 +53,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
            }
-        //correct this
         replaceFragment(Page1 ())
-                //data from Retrofit API
+        //data from Retrofit API
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://run.mocky.io/v3/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -66,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         retrofitData.enqueue(object : Callback<MyData?> {
             override fun onResponse(call: Call<MyData?>, response: Response<MyData?>) {
                 dataList = response.body()?.data!!
-                                Log.d("TAG: onResponse", "onResponse: "+ response.body())
+               Log.d("TAG: onResponse", "onResponse: "+ response.body())
             }
 
             override fun onFailure(call: Call<MyData?>, t: Throwable) {

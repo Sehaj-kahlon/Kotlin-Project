@@ -25,7 +25,6 @@ class MyAdapter(val context: Activity, val dataList: List<Item>):
             itemPrice = itemView.findViewById(R.id.mrp)
             shipInfo = itemView.findViewById(R.id.shipping_info)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
