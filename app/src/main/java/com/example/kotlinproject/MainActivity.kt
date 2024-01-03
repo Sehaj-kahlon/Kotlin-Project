@@ -24,12 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
     //toolbar
     private lateinit var appToolbar: Toolbar
-    //bottom nav bar
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var myRecyclerView: RecyclerView
-    private lateinit var myAdapter: MyAdapter
    private lateinit var bottomAppBar: BottomAppBar
-// Set up the BottomAppBar and BottomNavigationView as needed
+   private lateinit var  dataList: Data
 
     private lateinit var bottomNavigationView: BottomNavigationView
     @SuppressLint("MissingInflatedId")
@@ -40,15 +36,12 @@ class MainActivity : AppCompatActivity() {
         appToolbar = findViewById(R.id.Toolbar)
         appToolbar.setTitle("")
         setSupportActionBar(appToolbar)
-        //explore text
-       // textView = findViewById(R.id.explore)
         bottomAppBar = findViewById(R.id.bottom_nav)
         bottomNavigationView = findViewById(R.id.bottom_menu)
-        myRecyclerView = findViewById(R.id.recyclerView)
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId){
                 R.id.btn1 ->{
-                    replaceFragment(Page1())
+                    replaceFragment(Page1.newInstance(dataList.items))
                     true
                 }
                 R.id.btn2 ->{
@@ -60,8 +53,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
            }
-        replaceFragment(Page1())
-        //data from Retrofit API
+        //correct this
+        replaceFragment(Page1 ())
+                //data from Retrofit API
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://run.mocky.io/v3/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -71,13 +65,8 @@ class MainActivity : AppCompatActivity() {
 
         retrofitData.enqueue(object : Callback<MyData?> {
             override fun onResponse(call: Call<MyData?>, response: Response<MyData?>) {
-                val dataList = response.body()?.data!!
-//                val textView = findViewById<TextView>(R.id.helloText)
-//                textView.text = dataList.toString()
-                myAdapter= MyAdapter(this@MainActivity,dataList.items)
-                myRecyclerView.adapter = myAdapter
-                myRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
-                Log.d("TAG: onResponse", "onResponse: "+ response.body())
+                dataList = response.body()?.data!!
+                                Log.d("TAG: onResponse", "onResponse: "+ response.body())
             }
 
             override fun onFailure(call: Call<MyData?>, t: Throwable) {
