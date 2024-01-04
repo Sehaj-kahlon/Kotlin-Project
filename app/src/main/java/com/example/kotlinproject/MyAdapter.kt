@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
 
@@ -41,7 +42,7 @@ class MyAdapter(val context: Activity, val dataList: List<Item>):
         val currentData = dataList[position]
 
         holder.itemName.text= currentData.name
-        Picasso.get().load(currentData.image).into(holder.itemImage);
+        Glide.with(context).load(currentData.image).into(holder.itemImage)
         holder.shipInfo.text = currentData.extra
         holder.itemPrice.text = currentData.price
     }
